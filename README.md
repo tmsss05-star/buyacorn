@@ -1,5 +1,7 @@
 # Astro Starter Kit: Minimal
 
+Site for buyacorn.com — deployed via Vercel (Acorn team, Dunnottar-Group org).
+
 ```sh
 npm create astro@latest -- --template minimal
 ```
