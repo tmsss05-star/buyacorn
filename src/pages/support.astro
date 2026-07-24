@@ -8,7 +8,7 @@ import favicon from './public/favicon.jpeg';
 <link rel="icon" type="image/jpeg" href={favicon.src} />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Support - Acorn</title>
-<meta name="description" content="Get help with Acorn. Live chat for quick questions, or book time with the team." />
+<meta name="description" content="Get help with Acorn. Chat with the team right here for quick questions." />
 <meta name="robots" content="noindex" />
 <script is:inline>
   document.documentElement.classList.add('is-loaded');
@@ -147,46 +147,28 @@ import favicon from './public/favicon.jpeg';
     text-align: center;
   }
 
-  .help-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    justify-content: center;
-    margin: 0 auto 48px;
-    max-width: 680px;
-  }
-
-  .help-card {
-    background: var(--glass);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    flex: 1 1 260px;
-    padding: 22px 24px;
-    text-align: left;
-  }
-
-  .help-card span {
-    color: var(--signal-sage);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .help-card p {
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 15px;
-    margin-top: 8px;
-  }
-
-  .calendly-inline-widget {
+  .chat-inline {
     background: transparent;
     border: 1px solid var(--line);
     border-radius: 8px;
-    margin: 0 auto;
+    margin: 32px auto 0;
     max-width: 100%;
     overflow: hidden;
+  }
+
+  .chat-inline iframe {
+    border: 0;
+    display: block;
+    height: 600px;
+    width: 100%;
+  }
+
+  .hours-note {
+    color: rgba(255, 255, 255, 0.62);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    margin-top: 16px;
   }
 
   .footer {
@@ -261,8 +243,8 @@ import favicon from './public/favicon.jpeg';
       height: 40px;
     }
 
-    .help-options {
-      flex-direction: column;
+    .chat-inline iframe {
+      height: 520px;
     }
   }
 </style>
@@ -283,23 +265,18 @@ import favicon from './public/favicon.jpeg';
     <div class="shell hero-inner" data-reveal>
       <span class="status-badge">Support</span>
       <h1>We're here to help</h1>
-      <p class="lead">Live chat in the bottom-right for quick questions. Or book time with the team below.</p>
+      <p class="lead">Chat with the team right here for quick questions.</p>
+      <p class="hours-note">We respond fast during business hours, Eastern.</p>
 
-      <div class="help-options">
-        <div class="help-card">
-          <span>Quick questions</span>
-          <p>Click the chat bubble in the bottom-right corner. We're usually fast to respond.</p>
-        </div>
-        <div class="help-card">
-          <span>Need more time</span>
-          <p>Grab a slot on the calendar below and we'll work through it live.</p>
-        </div>
+      <!-- tawk.to inline chat begin -->
+      <div class="chat-inline">
+        <iframe
+          src="https://tawk.to/chat/6a5eece1642ea11d490f160b/1ju1cqksd"
+          title="Chat with Acorn support"
+          allow="microphone; camera"
+        ></iframe>
       </div>
-
-      <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/redbeardbrian/acorn-welcome?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=0a3d2f" style="min-width:320px;height:720px;"></div>
-      <script is:inline type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      <!-- Calendly inline widget end -->
+      <!-- tawk.to inline chat end -->
     </div>
   </section>
 </main>
@@ -337,18 +314,5 @@ import favicon from './public/favicon.jpeg';
   }
 </script>
 
-<!--Start of Tawk.to Script-->
-<script is:inline type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a5eece1642ea11d490f160b/1ju1cqksd';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
 </body>
 </html>
