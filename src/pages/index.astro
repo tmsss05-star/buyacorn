@@ -417,7 +417,6 @@ import favicon from './public/favicon.jpeg';
                     el.innerHTML = av + '<div class="sw-body"><div class="sw-metaline">' + name
                         + '<span class="sw-time">' + time + '</span></div><div class="sw-text">' + bodyHTML + '</div></div>';
                     feed.appendChild(el);
-                    requestAnimationFrame(function () { el.classList.add('in'); });
                     feed.scrollTop = feed.scrollHeight;
                     return el;
                 }
@@ -2105,7 +2104,7 @@ import favicon from './public/favicon.jpeg';
         display: flex;
         flex-direction: column;
         font-family: 'Lato', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-        height: 580px;
+        height: 640px;
         overflow: hidden;
     }
     .slackwin * { box-sizing: border-box; }
@@ -2134,16 +2133,14 @@ import favicon from './public/favicon.jpeg';
     .sw-divider::before, .sw-divider::after { background: #e2e2e2; content: ""; flex: 1; height: 1px; }
     .sw-divider span { border: 1px solid #e2e2e2; border-radius: 14px; color: #616061; font-size: 12px; font-weight: 800; padding: 2px 12px; }
     .sw-msg {
+        animation: sw-in 260ms ease;
         display: grid;
         gap: 10px;
         grid-template-columns: 36px minmax(0, 1fr);
-        opacity: 0;
         padding: 7px 18px;
-        transform: translateY(6px);
-        transition: opacity 240ms ease, transform 240ms ease;
     }
-    .sw-msg.in { opacity: 1; transform: none; }
     .sw-msg:hover { background: #f8f8f8; }
+    @keyframes sw-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
     .sw-avatar {
         align-items: center;
         border-radius: 4px;
@@ -2220,9 +2217,8 @@ import favicon from './public/favicon.jpeg';
     .sw-caret { animation: sw-caret 1s step-end infinite; background: #1d1c1d; display: inline-block; height: 18px; margin: 0 1px; width: 2px; }
     @keyframes sw-blink { 0%, 80%, 100% { opacity: 0.3; } 40% { opacity: 1; } }
     @keyframes sw-caret { 50% { opacity: 0; } }
-    @media (max-width: 640px) { .slackwin { height: 540px; } }
+    @media (max-width: 640px) { .slackwin { height: 600px; } }
     @media (prefers-reduced-motion: reduce) {
-        .sw-caret, .sw-dots span { animation: none; }
-        .sw-msg { opacity: 1; transform: none; transition: none; }
+        .sw-caret, .sw-dots span, .sw-msg { animation: none; }
     }
 </style>
